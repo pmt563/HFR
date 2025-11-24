@@ -38,7 +38,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Ensure optional runtime namespace/backports modules are present for setuptools/vendor packages
 # Some setuptools/vendored packages expect 'backports' namespace; install explicitly to avoid
 # ModuleNotFoundError during PyInstaller runtime hooks in the container.
-RUN pip install --no-cache-dir backports
+RUN pip install --no-cache-dir backports.tarfile
 
 # Copy files after dependencies to leverage caching
 COPY . /
