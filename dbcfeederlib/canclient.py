@@ -387,7 +387,7 @@ class CANClient:
     def recv_all(self) -> List[CANMessage]:
         """Receive all messages from CAN bus."""
         try:
-            rcv_can_msgs = receive_can_data(self.dev_ch2)
+            rcv_can_msgs = receive_can_data(dev_ch2)
             
             all_messages = []
             for can_msg in rcv_can_msgs:
