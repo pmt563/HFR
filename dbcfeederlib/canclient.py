@@ -3,7 +3,7 @@ from ctypes import *
 import time
 import os
 import logging
-from typing import Optional
+from typing import Optional, List
 import can  # type: ignore
 import sys
 import struct
