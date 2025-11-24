@@ -384,7 +384,23 @@ class CANClient:
             return canmsg
         return None
 
-
+    def recv_all(self) -> List[canmessage.CANMessage]:
+        """Receive all messages from CAN bus."""
+        try:
+            rcv_can_msgs = receive_can_data(self.dev_ch2)
+            
+            all_messages = []
+            for can_msg in rcv_can_msgs:
+                log.info("DATA TYPE: ID datatypes: %s   -- Data: %s", 
+                        type(can_msg.frame.can_id), type(can_msg.frame.data[0]))
+                log.info("Receive CAN message from USB CAN: ID %s Data: %s", 
+                        can_msg.frame.can_id, can_msg.frame.data[0])
+                all_messages.append(can_msg)
+            
+            return all_messages
+        except can.CanError:
+            log.error("Error while receiving all messages from CAN", exc_info=True)
+            return []
 
     def send(self, arbitration_id, data):
         """Write message to CAN bus."""
