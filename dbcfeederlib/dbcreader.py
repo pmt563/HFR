@@ -36,26 +36,26 @@ class DBCReader(canreader.CanReader):
                  can_fd: bool, dump_file: Optional[str] = None):
         super().__init__(rxqueue, mapper, can_port, dump_file, can_fd=can_fd)
 
-    # def _rx_worker(self):
-
-    #     log.info("Starting to receive CAN messages fom bus")
-    #     while self.is_running():
-    #         msg = self._canclient.recv(timeout=1)
-    #         if msg is not None:
-    #             log.debug("Processing CAN message with frame ID %#x", msg.get_arbitration_id())
-    #             log.debug("Type of ID: %s - data:%s", type(msg.get_arbitration_id()), type(msg.get_data()))
-    #             self._process_can_message(msg.get_arbitration_id(), msg.get_data())
-    #     log.info("Stopped receiving CAN messages from bus")
     def _rx_worker(self):
-        log.info("Starting to receive CAN messages from bus")
+
+        log.info("Starting to receive CAN messages fom bus")
         while self.is_running():
-            msgs = self._canclient.recv_all()  
-            for msg in msgs:
-                if msg is not None:
-                    log.debug("Processing CAN message with frame ID %#x", msg.get_arbitration_id())
-                    log.debug("Type of ID: %s - data:%s", type(msg.get_arbitration_id()), type(msg.get_data()))
-                    self._process_can_message(msg.get_arbitration_id(), msg.get_data())
+            msg = self._canclient.recv(timeout=0)
+            if msg is not None:
+                log.debug("Processing CAN message with frame ID %#x", msg.get_arbitration_id())
+                log.debug("Type of ID: %s - data:%s", type(msg.get_arbitration_id()), type(msg.get_data()))
+                self._process_can_message(msg.get_arbitration_id(), msg.get_data())
         log.info("Stopped receiving CAN messages from bus")
+    # def _rx_worker(self):
+    #     log.info("Starting to receive CAN messages from bus")
+    #     while self.is_running():
+    #         msgs = self._canclient.recv_all()  
+    #         for msg in msgs:
+    #             if msg is not None:
+    #                 log.debug("Processing CAN message with frame ID %#x", msg.get_arbitration_id())
+    #                 log.debug("Type of ID: %s - data:%s", type(msg.get_arbitration_id()), type(msg.get_data()))
+    #                 self._process_can_message(msg.get_arbitration_id(), msg.get_data())
+    #     log.info("Stopped receiving CAN messages from bus")
 
 
     def _start_can_bus_listener(self):
