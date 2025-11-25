@@ -359,30 +359,56 @@ class CANClient:
         log.info("Close USB CAN !!!")
 
 
+    # def recv(self, timeout: int = 1) -> Optional[CANMessage]:
+    #     """Receive message from CAN bus."""
+    #     print(timeout)
+    #     try:
+    #         rcv_can_msgs = receive_can_data(dev_ch2)
+    #         i = 0
+    #         # log.info("DATA TYPE: ID datatypes: %s   -- Data: %s", type(rcv_can_msgs[i].frame.can_id), type(rcv_can_msgs[i].frame.data[0]))
+    #         log.info("Receive CAN message from USB CAN: ID %s Data: %s", rcv_can_msgs[i].frame.can_id, rcv_can_msgs[i].frame.data[0])
+    #     except can.CanError:
+    #         rcv_can_msgs = None  
+    #         if dev_ch2:
+    #             log.error("Error while waiting for recv from CAN", exc_info=True)
+    #         else:
+    #             # This is expected if we are shutting down 
+    #             log.debug("Exception received during shutdown")
+                
+    #     i = 0
+    #     if rcv_can_msgs:
+    #         canmsg_format = can.Message(timestamp=rcv_can_msgs[i].timestamp, arbitration_id=rcv_can_msgs[i].frame.can_id, data=rcv_can_msgs[i].frame.data)
+    #         canmsg = CANMessage(canmsg_format)
+    #         # log.info("Type ID: %s - Type Data: %s", type(canmsg.get_arbitration_id()), type(canmsg.get_data()))
+    #         log.info("Convert to CAN msg STRUCT: [ID] %s - [data] %s", canmsg.get_arbitration_id(), canmsg.get_data())
+    #         return canmsg
+    #     return None
+
     def recv(self, timeout: int = 1) -> Optional[CANMessage]:
-        """Receive message from CAN bus."""
-        print(timeout)
         try:
             rcv_can_msgs = receive_can_data(dev_ch2)
-            i = 0
-            # log.info("DATA TYPE: ID datatypes: %s   -- Data: %s", type(rcv_can_msgs[i].frame.can_id), type(rcv_can_msgs[i].frame.data[0]))
-            log.info("Receive CAN message from USB CAN: ID %s Data: %s", rcv_can_msgs[i].frame.can_id, rcv_can_msgs[i].frame.data[0])
         except can.CanError:
-            rcv_can_msgs = None  
-            if dev_ch2:
-                log.error("Error while waiting for recv from CAN", exc_info=True)
-            else:
-                # This is expected if we are shutting down 
-                log.debug("Exception received during shutdown")
-                
-        i = 0
-        if rcv_can_msgs:
-            canmsg_format = can.Message(timestamp=rcv_can_msgs[i].timestamp, arbitration_id=rcv_can_msgs[i].frame.can_id, data=rcv_can_msgs[i].frame.data)
+            return None
+
+        if not rcv_can_msgs:
+            return None
+
+        # Iterate all received frames instead of only index 0
+        for msg in rcv_can_msgs:
+            canmsg_format = can.Message(
+                timestamp=msg.timestamp,
+                arbitration_id=msg.frame.can_id,
+                data=bytes(msg.frame.data[:msg.frame.can_dlc])
+            )
+
             canmsg = CANMessage(canmsg_format)
-            # log.info("Type ID: %s - Type Data: %s", type(canmsg.get_arbitration_id()), type(canmsg.get_data()))
-            log.info("Convert to CAN msg STRUCT: [ID] %s - [data] %s", canmsg.get_arbitration_id(), canmsg.get_data())
-            return canmsg
+            log.info("Convert to CAN msg STRUCT: [ID] %s - [data] %s",
+                    canmsg.get_arbitration_id(), canmsg.get_data())
+
+            yield canmsg    # allows feeder to process ALL frames
+
         return None
+
 
     def recv_all(self) -> List[CANMessage]:
         """Receive all messages from CAN bus."""

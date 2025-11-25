@@ -8941,7 +8941,7 @@
                         "type": "sensor",
                         "datatype": "uint8",
                         "dbc2vss":{
-                          "interval_ms": 100,
+                          "interval_ms": 10,
                           "signal": "SRS_CrashOut_DetectionCrashType",
                           "transform":
                           {
@@ -8962,7 +8962,7 @@
                           "signal": "NearCrash",
                           "transform":
                           {
-                            "math": "abc(x)"
+                            "math": "abs(x)"
                           }
                         },
                         "description": "For simulation crash only, proprietary signals mapping.",

@@ -1,0 +1,251 @@
+/////////////////////////// sequence: time step 5ms //////////////////////////
+
+[2] Vehicle.CrashOutput.InjectionCrashType: 2 m
+[2] Vehicle.CrashOutput.InjectionCrashType: 0 m
+[2] Vehicle.CrashOutput.InjectionCrashType: 3 m
+[2] Vehicle.CrashOutput.InjectionCrashType: 2 m
+[1] Vehicle.CrashOutput.DetectionCrashType: 22 m
+[1] Vehicle.CrashOutput.DetectionCrashType: 0 m
+
+
+025-11-25 08:39:26,783 INFO dbcfeederlib.databrokerclientwrapper: Check if connected to data broker
+2025-11-25 08:39:27,784 INFO dbcfeederlib.databrokerclientwrapper: Check if connected to data broker
+[0]:ts:104640500, id:1418, len:8, eff:0, rtr:0, data:22 22 22 22 22 22 22 22
+[1]:ts:104645500, id:796, len:4, eff:0, rtr:0, data:22 22 22 22
+2025-11-25 08:39:28,161 INFO dbcfeederlib.canclient: Receive CAN message from USB CAN: ID 1418 Data: 22
+2025-11-25 08:39:28,163 INFO dbcfeederlib.canclient: Convert to CAN msg STRUCT: [ID] 1418 - [data] bytearray(b'\x16\x16\x16\x16\x16\x16\x16\x16')
+2025-11-25 08:39:28,164 DEBUG dbcfeederlib.dbcreader: Processing CAN message with frame ID 0x58a
+2025-11-25 08:39:28,164 DEBUG dbcfeederlib.dbcreader: Type of ID: <class 'int'> - data:<class 'bytearray'>
+2025-11-25 08:39:28,166 INFO dbcfeederlib.dbcparser: CAN message in DBC: message('ABM_4', 0x58a, False, 8, None)
+2025-11-25 08:39:28,166 INFO dbcfeederlib.canreader: Processing CAN message with frame ID: 0x58a
+2025-11-25 08:39:28,166 INFO dbcfeederlib.canreader: [CANReader._process_can_messages] Decoded message: {'NearCrash': 2}
+2025-11-25 08:39:28,167 INFO dbcfeederlib.canreader: Handling decoded frame for message: ABM_4
+2025-11-25 08:39:28,167 INFO dbcfeederlib.canreader: Received CAN message: CAN ID=0x58a, Signal Index=0, Signal Name=NearCrash, Raw Value=2
+2025-11-25 08:39:28,168 INFO dbcfeederlib.canreader: DBC to VSS mapping for signal NearCrash: [<dbcfeederlib.dbc2vssmapper.VSSMapping object at 0xffff84bcffa0>]
+2025-11-25 08:39:28,168 DEBUG dbcfeederlib.dbc2vssmapper: Checking interval for Vehicle.CrashOutput.InjectionCrashType. Time is 1764059968.167, last sent 1764059951.751
+2025-11-25 08:39:28,169 DEBUG dbcfeederlib.canreader: Queueing Vehicle.CrashOutput.InjectionCrashType, triggered by NearCrash, raw value 2
+2025-11-25 08:39:28,169 INFO dbcfeederlib.canreader: Put VSS observation: VSSObservation(dbc_name='NearCrash', vss_name='Vehicle.CrashOutput.InjectionCrashType', raw_value=2, time=1764059968.1672602)
+2025-11-25 08:39:28,170 INFO dbcfeeder: [_run_receiver] VSS Observation: VSSObservation(dbc_name='NearCrash', vss_name='Vehicle.CrashOutput.InjectionCrashType', raw_value=2, time=1764059968.1672602)
+2025-11-25 08:39:28,170 INFO dbcfeeder: [_run_receiver] Found mapping for NearCrash to Vehicle.CrashOutput.InjectionCrashType: <dbcfeederlib.dbc2vssmapper.VSSMapping object at 0xffff84bcffa0>
+2025-11-25 08:39:28,171 DEBUG dbcfeederlib.dbc2vssmapper: Transformed value 2 for Vehicle.CrashOutput.InjectionCrashType
+2025-11-25 08:39:28,171 DEBUG dbcfeederlib.dbc2vssmapper: Checking change condition for Vehicle.CrashOutput.InjectionCrashType. New value 2, old value 3
+2025-11-25 08:39:28,172 INFO dbcfeederlib.databrokerclientwrapper: Update datapoint. Supported format for value is still a bit unclear/undefined. Like an a bool VSS signal both be fed as a Python bool and a string representing json true/false value (possibly with correct case)
+2025-11-25 08:39:28,172 DEBUG kuksa_client.grpc: SetRequest: updates {
+  entry {
+    path: "Vehicle.CrashOutput.InjectionCrashType"
+    value {
+      uint32: 2
+    }
+    metadata {
+      data_type: DATA_TYPE_UINT8
+    }
+  }
+  fields: FIELD_VALUE
+}
+
+0
+[0]:ts:104651600, id:1418, len:8, eff:0, rtr:0, data:0 0 0 0 0 0 0 0
+[1]:ts:104657500, id:796, len:4, eff:0, rtr:0, data:0 0 0 0
+2025-11-25 08:39:28,174 INFO dbcfeederlib.canclient: Receive CAN message from USB CAN: ID 1418 Data: 0
+2025-11-25 08:39:28,175 INFO dbcfeederlib.canclient: Convert to CAN msg STRUCT: [ID] 1418 - [data] bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00')
+2025-11-25 08:39:28,176 DEBUG kuksa_client.grpc: SetResponse:
+2025-11-25 08:39:28,177 DEBUG dbcfeederlib.databrokerclientwrapper: Vehicle.CrashOutput.InjectionCrashType => 2
+2025-11-25 08:39:28,177 DEBUG dbcfeeder: Succeeded sending DataPoint(Vehicle.CrashOutput.InjectionCrashType, 2, 1764059968.167260)
+Updated: Datapoint(%s, %s) Vehicle.CrashOutput.InjectionCrashType 2
+2025-11-25 08:39:28,177 INFO dbcfeederlib.databrokerclientwrapper: Check if connected to data broker
+2025-11-25 08:39:28,176 DEBUG dbcfeederlib.dbcreader: Processing CAN message with frame ID 0x58a
+2025-11-25 08:39:28,178 DEBUG dbcfeederlib.dbcreader: Type of ID: <class 'int'> - data:<class 'bytearray'>
+2025-11-25 08:39:28,178 INFO dbcfeederlib.dbcparser: CAN message in DBC: message('ABM_4', 0x58a, False, 8, None)
+2025-11-25 08:39:28,179 INFO dbcfeederlib.canreader: Processing CAN message with frame ID: 0x58a
+2025-11-25 08:39:28,179 INFO dbcfeederlib.canreader: [CANReader._process_can_messages] Decoded message: {'NearCrash': 0}
+2025-11-25 08:39:28,180 INFO dbcfeederlib.canreader: Handling decoded frame for message: ABM_4
+2025-11-25 08:39:28,180 INFO dbcfeederlib.canreader: Received CAN message: CAN ID=0x58a, Signal Index=0, Signal Name=NearCrash, Raw Value=0
+2025-11-25 08:39:28,180 INFO dbcfeederlib.canreader: DBC to VSS mapping for signal NearCrash: [<dbcfeederlib.dbc2vssmapper.VSSMapping object at 0xffff84bcffa0>]
+2025-11-25 08:39:28,181 DEBUG dbcfeederlib.dbc2vssmapper: Checking interval for Vehicle.CrashOutput.InjectionCrashType. Time is 1764059968.180, last sent 1764059968.167
+2025-11-25 08:39:28,181 DEBUG dbcfeederlib.canreader: Queueing Vehicle.CrashOutput.InjectionCrashType, triggered by NearCrash, raw value 0
+2025-11-25 08:39:28,182 INFO dbcfeederlib.canreader: Put VSS observation: VSSObservation(dbc_name='NearCrash', vss_name='Vehicle.CrashOutput.InjectionCrashType', raw_value=0, time=1764059968.180081)
+2025-11-25 08:39:28,182 INFO dbcfeeder: [_run_receiver] VSS Observation: VSSObservation(dbc_name='NearCrash', vss_name='Vehicle.CrashOutput.InjectionCrashType', raw_value=0, time=1764059968.180081)
+2025-11-25 08:39:28,182 INFO dbcfeeder: [_run_receiver] Found mapping for NearCrash to Vehicle.CrashOutput.InjectionCrashType: <dbcfeederlib.dbc2vssmapper.VSSMapping object at 0xffff84bcffa0>
+2025-11-25 08:39:28,183 DEBUG dbcfeederlib.dbc2vssmapper: Transformed value 0 for Vehicle.CrashOutput.InjectionCrashType
+2025-11-25 08:39:28,183 DEBUG dbcfeederlib.dbc2vssmapper: Checking change condition for Vehicle.CrashOutput.InjectionCrashType. New value 0, old value 2
+2025-11-25 08:39:28,184 INFO dbcfeederlib.databrokerclientwrapper: Update datapoint. Supported format for value is still a bit unclear/undefined. Like an a bool VSS signal both be fed as a Python bool and a string representing json true/false value (possibly with correct case)
+2025-11-25 08:39:28,184 DEBUG kuksa_client.grpc: SetRequest: updates {
+  entry {
+    path: "Vehicle.CrashOutput.InjectionCrashType"
+    value {
+      uint32: 0
+    }
+    metadata {
+      data_type: DATA_TYPE_UINT8
+    }
+  }
+  fields: FIELD_VALUE
+}
+
+0
+[0]:ts:104663500, id:1418, len:8, eff:0, rtr:0, data:11 11 11 11 11 11 11 11
+[1]:ts:104669400, id:796, len:4, eff:0, rtr:0, data:11 11 11 11
+2025-11-25 08:39:28,186 INFO dbcfeederlib.canclient: Receive CAN message from USB CAN: ID 1418 Data: 11
+2025-11-25 08:39:28,186 INFO dbcfeederlib.canclient: Convert to CAN msg STRUCT: [ID] 1418 - [data] bytearray(b'\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b')
+2025-11-25 08:39:28,186 DEBUG dbcfeederlib.dbcreader: Processing CAN message with frame ID 0x58a
+2025-11-25 08:39:28,187 DEBUG dbcfeederlib.dbcreader: Type of ID: <class 'int'> - data:<class 'bytearray'>
+2025-11-25 08:39:28,187 INFO dbcfeederlib.dbcparser: CAN message in DBC: message('ABM_4', 0x58a, False, 8, None)
+2025-11-25 08:39:28,187 INFO dbcfeederlib.canreader: Processing CAN message with frame ID: 0x58a
+2025-11-25 08:39:28,188 INFO dbcfeederlib.canreader: [CANReader._process_can_messages] Decoded message: {'NearCrash': 3}
+2025-11-25 08:39:28,189 INFO dbcfeederlib.canreader: Handling decoded frame for message: ABM_4
+2025-11-25 08:39:28,189 INFO dbcfeederlib.canreader: Received CAN message: CAN ID=0x58a, Signal Index=0, Signal Name=NearCrash, Raw Value=3
+2025-11-25 08:39:28,190 INFO dbcfeederlib.canreader: DBC to VSS mapping for signal NearCrash: [<dbcfeederlib.dbc2vssmapper.VSSMapping object at 0xffff84bcffa0>]
+2025-11-25 08:39:28,191 DEBUG kuksa_client.grpc: SetResponse:
+2025-11-25 08:39:28,191 DEBUG dbcfeederlib.dbc2vssmapper: Checking interval for Vehicle.CrashOutput.InjectionCrashType. Time is 1764059968.189, last sent 1764059968.180
+2025-11-25 08:39:28,192 DEBUG dbcfeederlib.canreader: Queueing Vehicle.CrashOutput.InjectionCrashType, triggered by NearCrash, raw value 3
+2025-11-25 08:39:28,192 INFO dbcfeederlib.canreader: Put VSS observation: VSSObservation(dbc_name='NearCrash', vss_name='Vehicle.CrashOutput.InjectionCrashType', raw_value=3, time=1764059968.1892962)
+0
+[0]:ts:104675500, id:1418, len:8, eff:0, rtr:0, data:22 22 22 22 22 22 22 22
+2025-11-25 08:39:28,191 DEBUG dbcfeederlib.databrokerclientwrapper: Vehicle.CrashOutput.InjectionCrashType => 0
+2025-11-25 08:39:28,192 INFO dbcfeederlib.canclient: Receive CAN message from USB CAN: ID 1418 Data: 22
+2025-11-25 08:39:28,193 DEBUG dbcfeeder: Succeeded sending DataPoint(Vehicle.CrashOutput.InjectionCrashType, 0, 1764059968.180081)
+Updated: Datapoint(%s, %s) Vehicle.CrashOutput.InjectionCrashType 0
+2025-11-25 08:39:28,193 INFO dbcfeederlib.canclient: Convert to CAN msg STRUCT: [ID] 1418 - [data] bytearray(b'\x16\x16\x16\x16\x16\x16\x16\x16')
+2025-11-25 08:39:28,194 INFO dbcfeederlib.databrokerclientwrapper: Check if connected to data broker
+2025-11-25 08:39:28,194 DEBUG dbcfeederlib.dbcreader: Processing CAN message with frame ID 0x58a
+2025-11-25 08:39:28,194 INFO dbcfeeder: [_run_receiver] VSS Observation: VSSObservation(dbc_name='NearCrash', vss_name='Vehicle.CrashOutput.InjectionCrashType', raw_value=3, time=1764059968.1892962)
+2025-11-25 08:39:28,194 DEBUG dbcfeederlib.dbcreader: Type of ID: <class 'int'> - data:<class 'bytearray'>
+2025-11-25 08:39:28,195 INFO dbcfeeder: [_run_receiver] Found mapping for NearCrash to Vehicle.CrashOutput.InjectionCrashType: <dbcfeederlib.dbc2vssmapper.VSSMapping object at 0xffff84bcffa0>
+2025-11-25 08:39:28,195 INFO dbcfeederlib.dbcparser: CAN message in DBC: message('ABM_4', 0x58a, False, 8, None)
+2025-11-25 08:39:28,196 DEBUG dbcfeederlib.dbc2vssmapper: Transformed value 3 for Vehicle.CrashOutput.InjectionCrashType
+2025-11-25 08:39:28,196 INFO dbcfeederlib.canreader: Processing CAN message with frame ID: 0x58a
+2025-11-25 08:39:28,197 DEBUG dbcfeederlib.dbc2vssmapper: Checking change condition for Vehicle.CrashOutput.InjectionCrashType. New value 3, old value 0
+2025-11-25 08:39:28,197 INFO dbcfeederlib.canreader: [CANReader._process_can_messages] Decoded message: {'NearCrash': 2}
+2025-11-25 08:39:28,197 INFO dbcfeederlib.databrokerclientwrapper: Update datapoint. Supported format for value is still a bit unclear/undefined. Like an a bool VSS signal both be fed as a Python bool and a string representing json true/false value (possibly with correct case)
+2025-11-25 08:39:28,198 INFO dbcfeederlib.canreader: Handling decoded frame for message: ABM_4
+2025-11-25 08:39:28,198 DEBUG kuksa_client.grpc: SetRequest: updates {
+  entry {
+    path: "Vehicle.CrashOutput.InjectionCrashType"
+    value {
+      uint32: 3
+    }
+    metadata {
+      data_type: DATA_TYPE_UINT8
+    }
+  }
+  fields: FIELD_VALUE
+}
+
+2025-11-25 08:39:28,199 INFO dbcfeederlib.canreader: Received CAN message: CAN ID=0x58a, Signal Index=0, Signal Name=NearCrash, Raw Value=2
+2025-11-25 08:39:28,200 INFO dbcfeederlib.canreader: DBC to VSS mapping for signal NearCrash: [<dbcfeederlib.dbc2vssmapper.VSSMapping object at 0xffff84bcffa0>]
+2025-11-25 08:39:28,201 DEBUG dbcfeederlib.dbc2vssmapper: Checking interval for Vehicle.CrashOutput.InjectionCrashType. Time is 1764059968.198, last sent 1764059968.189
+2025-11-25 08:39:28,201 DEBUG dbcfeederlib.canreader: Queueing Vehicle.CrashOutput.InjectionCrashType, triggered by NearCrash, raw value 2
+2025-11-25 08:39:28,201 INFO dbcfeederlib.canreader: Put VSS observation: VSSObservation(dbc_name='NearCrash', vss_name='Vehicle.CrashOutput.InjectionCrashType', raw_value=2, time=1764059968.1980987)
+0
+[0]:ts:104681400, id:796, len:4, eff:0, rtr:0, data:22 22 22 22
+[1]:ts:104687400, id:1418, len:8, eff:0, rtr:0, data:0 0 0 0 0 0 0 0
+2025-11-25 08:39:28,202 INFO dbcfeederlib.canclient: Receive CAN message from USB CAN: ID 796 Data: 22
+2025-11-25 08:39:28,202 INFO dbcfeederlib.canclient: Convert to CAN msg STRUCT: [ID] 796 - [data] bytearray(b'\x16\x16\x16\x16\x00\x00\x00\x00')
+2025-11-25 08:39:28,203 DEBUG dbcfeederlib.dbcreader: Processing CAN message with frame ID 0x31c
+2025-11-25 08:39:28,203 DEBUG kuksa_client.grpc: SetResponse:
+2025-11-25 08:39:28,203 DEBUG dbcfeederlib.dbcreader: Type of ID: <class 'int'> - data:<class 'bytearray'>
+2025-11-25 08:39:28,204 DEBUG dbcfeederlib.databrokerclientwrapper: Vehicle.CrashOutput.InjectionCrashType => 3
+2025-11-25 08:39:28,204 INFO dbcfeederlib.dbcparser: CAN message in DBC: message('SRS_51', 0x31c, False, 8, {None: ' '})
+2025-11-25 08:39:28,204 DEBUG dbcfeeder: Succeeded sending DataPoint(Vehicle.CrashOutput.InjectionCrashType, 3, 1764059968.189296)
+Updated: Datapoint(%s, %s) Vehicle.CrashOutput.InjectionCrashType 3
+2025-11-25 08:39:28,205 INFO dbcfeederlib.canreader: Processing CAN message with frame ID: 0x31c
+2025-11-25 08:39:28,205 INFO dbcfeederlib.databrokerclientwrapper: Check if connected to data broker
+2025-11-25 08:39:28,206 INFO dbcfeederlib.canreader: [CANReader._process_can_messages] Decoded message: {'SRS_CrashOut_DetectionCrashType': 22, 'SrsCycCntr051': 0, 'SrsCrcChk051': 0}
+2025-11-25 08:39:28,206 INFO dbcfeeder: [_run_receiver] VSS Observation: VSSObservation(dbc_name='NearCrash', vss_name='Vehicle.CrashOutput.InjectionCrashType', raw_value=2, time=1764059968.1980987)
+2025-11-25 08:39:28,206 INFO dbcfeederlib.canreader: Handling decoded frame for message: SRS_51
+2025-11-25 08:39:28,207 INFO dbcfeeder: [_run_receiver] Found mapping for NearCrash to Vehicle.CrashOutput.InjectionCrashType: <dbcfeederlib.dbc2vssmapper.VSSMapping object at 0xffff84bcffa0>
+2025-11-25 08:39:28,208 INFO dbcfeederlib.canreader: Received CAN message: CAN ID=0x31c, Signal Index=31, Signal Name=SRS_CrashOut_DetectionCrashType, Raw Value=22
+2025-11-25 08:39:28,209 DEBUG dbcfeederlib.dbc2vssmapper: Transformed value 2 for Vehicle.CrashOutput.InjectionCrashType
+2025-11-25 08:39:28,209 INFO dbcfeederlib.canreader: DBC to VSS mapping for signal SRS_CrashOut_DetectionCrashType: [<dbcfeederlib.dbc2vssmapper.VSSMapping object at 0xffff84bcfcd0>]
+2025-11-25 08:39:28,210 DEBUG dbcfeederlib.dbc2vssmapper: Checking interval for Vehicle.CrashOutput.DetectionCrashType. Time is 1764059968.207, last sent 1764059951.718
+2025-11-25 08:39:28,210 DEBUG dbcfeederlib.canreader: Queueing Vehicle.CrashOutput.DetectionCrashType, triggered by SRS_CrashOut_DetectionCrashType, raw value 22
+2025-11-25 08:39:28,209 DEBUG dbcfeederlib.dbc2vssmapper: Checking change condition for Vehicle.CrashOutput.InjectionCrashType. New value 2, old value 3
+2025-11-25 08:39:28,210 INFO dbcfeederlib.databrokerclientwrapper: Update datapoint. Supported format for value is still a bit unclear/undefined. Like an a bool VSS signal both be fed as a Python bool and a string representing json true/false value (possibly with correct case)
+2025-11-25 08:39:28,210 INFO dbcfeederlib.canreader: Put VSS observation: VSSObservation(dbc_name='SRS_CrashOut_DetectionCrashType', vss_name='Vehicle.CrashOutput.DetectionCrashType', raw_value=22, time=1764059968.2067966)
+2025-11-25 08:39:28,212 INFO dbcfeederlib.canreader: Received CAN message: CAN ID=0x31c, Signal Index=51, Signal Name=SrsCycCntr051, Raw Value=0
+2025-11-25 08:39:28,211 DEBUG kuksa_client.grpc: SetRequest: updates {
+  entry {
+    path: "Vehicle.CrashOutput.InjectionCrashType"
+    value {
+      uint32: 2
+    }
+    metadata {
+      data_type: DATA_TYPE_UINT8
+    }
+  }
+  fields: FIELD_VALUE
+}
+
+2025-11-25 08:39:28,212 INFO dbcfeederlib.canreader: DBC to VSS mapping for signal SrsCycCntr051: []
+2025-11-25 08:39:28,214 INFO dbcfeederlib.canreader: Received CAN message: CAN ID=0x31c, Signal Index=63, Signal Name=SrsCrcChk051, Raw Value=0
+2025-11-25 08:39:28,215 INFO dbcfeederlib.canreader: DBC to VSS mapping for signal SrsCrcChk051: []
+0
+[0]:ts:104693300, id:796, len:4, eff:0, rtr:0, data:0 0 0 0
+2025-11-25 08:39:28,215 DEBUG kuksa_client.grpc: SetResponse:
+2025-11-25 08:39:28,216 INFO dbcfeederlib.canclient: Receive CAN message from USB CAN: ID 796 Data: 0
+2025-11-25 08:39:28,217 DEBUG dbcfeederlib.databrokerclientwrapper: Vehicle.CrashOutput.InjectionCrashType => 2
+2025-11-25 08:39:28,217 INFO dbcfeederlib.canclient: Convert to CAN msg STRUCT: [ID] 796 - [data] bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00')
+2025-11-25 08:39:28,217 DEBUG dbcfeederlib.dbcreader: Processing CAN message with frame ID 0x31c
+2025-11-25 08:39:28,218 DEBUG dbcfeederlib.dbcreader: Type of ID: <class 'int'> - data:<class 'bytearray'>
+2025-11-25 08:39:28,217 DEBUG dbcfeeder: Succeeded sending DataPoint(Vehicle.CrashOutput.InjectionCrashType, 2, 1764059968.198099)
+Updated: Datapoint(%s, %s) Vehicle.CrashOutput.InjectionCrashType 2
+2025-11-25 08:39:28,218 INFO dbcfeederlib.dbcparser: CAN message in DBC: message('SRS_51', 0x31c, False, 8, {None: ' '})
+2025-11-25 08:39:28,219 INFO dbcfeederlib.canreader: Processing CAN message with frame ID: 0x31c
+2025-11-25 08:39:28,219 INFO dbcfeederlib.canreader: [CANReader._process_can_messages] Decoded message: {'SRS_CrashOut_DetectionCrashType': 0, 'SrsCycCntr051': 0, 'SrsCrcChk051': 0}
+2025-11-25 08:39:28,219 INFO dbcfeederlib.canreader: Handling decoded frame for message: SRS_51
+2025-11-25 08:39:28,219 INFO dbcfeederlib.canreader: Received CAN message: CAN ID=0x31c, Signal Index=31, Signal Name=SRS_CrashOut_DetectionCrashType, Raw Value=0
+2025-11-25 08:39:28,220 INFO dbcfeederlib.canreader: DBC to VSS mapping for signal SRS_CrashOut_DetectionCrashType: [<dbcfeederlib.dbc2vssmapper.VSSMapping object at 0xffff84bcfcd0>]
+2025-11-25 08:39:28,220 DEBUG dbcfeederlib.dbc2vssmapper: Checking interval for Vehicle.CrashOutput.DetectionCrashType. Time is 1764059968.220, last sent 1764059968.207
+2025-11-25 08:39:28,220 DEBUG dbcfeederlib.canreader: Queueing Vehicle.CrashOutput.DetectionCrashType, triggered by SRS_CrashOut_DetectionCrashType, raw value 0
+2025-11-25 08:39:28,220 INFO dbcfeederlib.canreader: Put VSS observation: VSSObservation(dbc_name='SRS_CrashOut_DetectionCrashType', vss_name='Vehicle.CrashOutput.DetectionCrashType', raw_value=0, time=1764059968.219618)
+2025-11-25 08:39:28,221 INFO dbcfeederlib.canreader: Received CAN message: CAN ID=0x31c, Signal Index=51, Signal Name=SrsCycCntr051, Raw Value=0
+2025-11-25 08:39:28,221 INFO dbcfeederlib.canreader: DBC to VSS mapping for signal SrsCycCntr051: []
+2025-11-25 08:39:28,221 INFO dbcfeederlib.canreader: Received CAN message: CAN ID=0x31c, Signal Index=63, Signal Name=SrsCrcChk051, Raw Value=0
+2025-11-25 08:39:28,221 INFO dbcfeederlib.canreader: DBC to VSS mapping for signal SrsCrcChk051: []
+2025-11-25 08:39:28,222 INFO dbcfeederlib.databrokerclientwrapper: Check if connected to data broker
+0
+2025-11-25 08:39:28,223 INFO dbcfeeder: [_run_receiver] VSS Observation: VSSObservation(dbc_name='SRS_CrashOut_DetectionCrashType', vss_name='Vehicle.CrashOutput.DetectionCrashType', raw_value=22, time=1764059968.2067966)
+2025-11-25 08:39:28,224 INFO dbcfeeder: [_run_receiver] Found mapping for SRS_CrashOut_DetectionCrashType to Vehicle.CrashOutput.DetectionCrashType: <dbcfeederlib.dbc2vssmapper.VSSMapping object at 0xffff84bcfcd0>
+2025-11-25 08:39:28,224 DEBUG dbcfeederlib.dbc2vssmapper: Transformed value 22 for Vehicle.CrashOutput.DetectionCrashType
+2025-11-25 08:39:28,224 DEBUG dbcfeederlib.dbc2vssmapper: Checking change condition for Vehicle.CrashOutput.DetectionCrashType. New value 22, old value 22
+2025-11-25 08:39:28,225 INFO dbcfeederlib.databrokerclientwrapper: Update datapoint. Supported format for value is still a bit unclear/undefined. Like an a bool VSS signal both be fed as a Python bool and a string representing json true/false value (possibly with correct case)
+2025-11-25 08:39:28,225 DEBUG kuksa_client.grpc: SetRequest: updates {
+  entry {
+    path: "Vehicle.CrashOutput.DetectionCrashType"
+    value {
+      uint32: 22
+    }
+    metadata {
+      data_type: DATA_TYPE_UINT8
+    }
+  }
+  fields: FIELD_VALUE
+}
+
+2025-11-25 08:39:28,228 DEBUG kuksa_client.grpc: SetResponse:
+2025-11-25 08:39:28,228 DEBUG dbcfeederlib.databrokerclientwrapper: Vehicle.CrashOutput.DetectionCrashType => 22
+2025-11-25 08:39:28,229 DEBUG dbcfeeder: Succeeded sending DataPoint(Vehicle.CrashOutput.DetectionCrashType, 22, 1764059968.206797)
+Updated: Datapoint(%s, %s) Vehicle.CrashOutput.DetectionCrashType 22
+2025-11-25 08:39:28,229 INFO dbcfeederlib.databrokerclientwrapper: Check if connected to data broker
+2025-11-25 08:39:28,229 INFO dbcfeeder: [_run_receiver] VSS Observation: VSSObservation(dbc_name='SRS_CrashOut_DetectionCrashType', vss_name='Vehicle.CrashOutput.DetectionCrashType', raw_value=0, time=1764059968.219618)
+2025-11-25 08:39:28,229 INFO dbcfeeder: [_run_receiver] Found mapping for SRS_CrashOut_DetectionCrashType to Vehicle.CrashOutput.DetectionCrashType: <dbcfeederlib.dbc2vssmapper.VSSMapping object at 0xffff84bcfcd0>
+2025-11-25 08:39:28,230 DEBUG dbcfeederlib.dbc2vssmapper: Transformed value 0 for Vehicle.CrashOutput.DetectionCrashType
+2025-11-25 08:39:28,230 DEBUG dbcfeederlib.dbc2vssmapper: Checking change condition for Vehicle.CrashOutput.DetectionCrashType. New value 0, old value 22
+2025-11-25 08:39:28,230 INFO dbcfeederlib.databrokerclientwrapper: Update datapoint. Supported format for value is still a bit unclear/undefined. Like an a bool VSS signal both be fed as a Python bool and a string representing json true/false value (possibly with correct case)
+2025-11-25 08:39:28,231 DEBUG kuksa_client.grpc: SetRequest: updates {
+  entry {
+    path: "Vehicle.CrashOutput.DetectionCrashType"
+    value {
+      uint32: 0
+    }
+    metadata {
+      data_type: DATA_TYPE_UINT8
+    }
+  }
+  fields: FIELD_VALUE
+}
+
+2025-11-25 08:39:28,234 DEBUG kuksa_client.grpc: SetResponse:
+2025-11-25 08:39:28,234 DEBUG dbcfeederlib.databrokerclientwrapper: Vehicle.CrashOutput.DetectionCrashType => 0
+2025-11-25 08:39:28,234 DEBUG dbcfeeder: Succeeded sending DataPoint(Vehicle.CrashOutput.DetectionCrashType, 0, 1764059968.219618)
+Updated: Datapoint(%s, %s) Vehicle.CrashOutput.DetectionCrashType 0

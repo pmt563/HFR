@@ -5195,6 +5195,13 @@
           },
           "InjectionCrashType": {
             "datatype": "uint8",
+            "dbc2vss":{
+              "signal": "NearCrash",
+              "transform": {
+                "math": "x"
+              },
+              "interval_ms": 100
+            },
             "description": "For simulation crash only, proprietary signals mapping.",
             "type": "actuator"
           }
