@@ -252,7 +252,7 @@ def receive_can_data(dev_ch2):
     while True:
         ret = canDLL.ZCAN_GetReceiveNum(dev_ch2, TYPE_CAN)
         while ret <= 0:
-            time.sleep(0.01)  # Add a small delay to avoid busy-waiting
+            time.sleep(0.0001)  # Add a small delay to avoid busy-waiting
             ret = canDLL.ZCAN_GetReceiveNum(dev_ch2, TYPE_CAN)
         if ret > 0:
             rcv_can_msgs = (ZCAN_Receive_Data * ret)()
